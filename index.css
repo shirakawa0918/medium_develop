@@ -169,4 +169,19 @@ main > section { position: relative; }
     .hero-text {
         padding: 0rem;
     }
+    .event-date{
+        font-size: 1.5rem;
+    }
+    #event-location{
+        font-size: 1.2rem;
+    }
+    #event-text{
+        font-size: 1.5rem;
+    }
+    .event-day1, .event-day2{
+        font-size: 1.5rem;
+    }
+    #day1-title, #day2-title{
+    margin: 0.2rem 0 0.2rem 4rem;
+    }
 }
