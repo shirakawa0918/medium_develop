@@ -1,3 +1,4 @@
+/* 色を変数化 */
 :root{
     --main-color:#32CD32;
     --sub-color-blue:#00CED1;
@@ -16,12 +17,12 @@ html, body {
   box-sizing: border-box;
 }
 main > section { position: relative; }
-/* ヒーロー画像上にテキストを中央配置 */
+/* キービジュアル */
 .hero {
   position: relative;
   width: 100%;
   display: block;
-  height: 50vh;       /* ここを 40vh / 60vh / 300px などで調整 */
+  height: 50vh;
   overflow: hidden;
 }
 .hero img {
@@ -53,6 +54,7 @@ main > section { position: relative; }
   font-size: clamp(1rem, 3vw, 1.25rem);
 }
 
+/*　イベント開催日時 */
 .event-info-top{
     color: var(--info-color);
     font-weight: bold;
@@ -78,6 +80,7 @@ main > section { position: relative; }
     margin: 0.2rem 0;
 }
 
+/* イベントday1 */
 .event-day1{
     color: var(--sub-color-blue);
     font-size: 3rem;
@@ -90,6 +93,7 @@ main > section { position: relative; }
     text-align: center;
 }
 
+/* イベントday1 */
 .event-day2{
     color: var(--sub-color-orange);
     font-size: 3rem;
@@ -102,6 +106,7 @@ main > section { position: relative; }
     text-align: center;
 }
 
+/* お知らせ */
 .news-section{
     margin: 0 5rem;
     border-top: 1px solid var(--text-color);
@@ -125,6 +130,7 @@ main > section { position: relative; }
     margin: 0.2rem 0;
 }
 
+/* リンクボタン */
 .link-section{
     margin: 3rem 0;
     text-align: center;
@@ -165,9 +171,11 @@ main > section { position: relative; }
     box-shadow: #6a6a6a 2px 2px 6px;
 }
 @media (max-width: 768px) {
+    /* キービジュアル */
     .hero-text {
         padding: 0rem;
     }
+    /* イベント開催日時 */
     .event-date{
         font-size: 1.5rem;
     }
@@ -177,12 +185,14 @@ main > section { position: relative; }
     #event-text{
         font-size: 1.5rem;
     }
+    /* イベントday1, day2 */
     .event-day1, .event-day2{
         font-size: 1.5rem;
     }
     #day1-title, #day2-title{
         margin: 0.2rem 0 0.2rem 4rem;
     }
+    /* お知らせ */
     .news-section{
         margin: 0 2rem;
     }
@@ -202,6 +212,7 @@ main > section { position: relative; }
     .news-content{
         margin: 0.2rem 0;
     }
+    /* リンクボタン */
     .link-section{
         margin: 2rem 0;
     }
