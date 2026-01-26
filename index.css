@@ -6,6 +6,15 @@
     --bg-color:#ffffff;
     --text-color:#000000;
 }
+/* リセット：デフォルトの余白を消す */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 main > section { position: relative; }
 /* ヒーロー画像上にテキストを中央配置 */
 .hero {
@@ -18,7 +27,6 @@ main > section { position: relative; }
 .hero img {
     display: block;
     width: 100%;
-    height: auto;
     height: 100%;
     object-fit: cover;
 }
