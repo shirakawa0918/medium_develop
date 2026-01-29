@@ -44,7 +44,25 @@ h3,
     color: white;
     text-decoration: none;
 }
-
+.ticket{
+    background-color: #32CD32;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 80vh;
+    left: 70vw;
+    z-index: 1001;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+}
+.ticket a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
 /* ハンバーガーメニュー */
 .header-top-wrapper{
     display: flex;
@@ -210,6 +228,25 @@ h3,
         font-size: 1.25rem;
         margin: 0;
         width: 100%;
+    }
+    .ticket{
+        background-color: #32CD32;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 80vh;
+        left: 90vw;
+        z-index: 1001;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    }
+    .ticket a{
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
     }
     /* PCではハンバーガーメニューを非表示 */
     .hamburger {
