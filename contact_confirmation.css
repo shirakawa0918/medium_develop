@@ -1,0 +1,8 @@
+@charset "UTF-8";
+#confirmation-head-text{
+    text-align: center;
+}
+.confirmation-box{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
