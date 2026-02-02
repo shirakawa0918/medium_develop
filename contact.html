@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせフォーム</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- 以下ヘッダー -->
+    <header class="header">
+        <div class="header-top-wrapper">
+            <div class="header-top en">
+                <a href="index.html" class="header-logo-link">Spring Music Festival 2026</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul class="header-nav">
+            <li><a href="artist/index.html">出演者一覧</a></li>
+            <li><a href="timetable.html">タイムテーブル</a></li>
+            <li><a href="map.html">会場案内</a></li>
+            <li><a href="goods.html">グッズ紹介</a></li>
+            <li><a href="guide.html">来場者ガイド</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+        </ul>
+    </header>
+    <div class="ticket">
+            <a href="">ticket</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="artist/index.html">出演者一覧</a></li>
+            <li><a href="timetable.html">タイムテーブル</a></li>
+            <li><a href="map.html">会場案内</a></li>
+            <li><a href="goods.html">グッズ紹介</a></li>
+            <li><a href="guide.html">来場者ガイド</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+        </ul>
+    </nav>
+    <!-- ここまでヘッダー -->
+    <div class="container mt-5 p-5">
+        <h1 class="text-center page-title">お問い合わせ</h1>
+        <form class="mt-5 text-lg-end justify-content-center">
+            <div class="row mb-5 gy-2">
+                <div class="col-md-3 form-label-col">
+                    <label class="form-label mb-0">お問い合わせ種別</label>
+                    <span class="badge text-bg-danger ms-2">必須</span>
+                </div>
+                <div class="col-md-9 d-flex align-items-center flex-wrap">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inquiryType" id="type1" value="ticket">
+                        <label class="form-check-label" for="type1">チケットについて</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inquiryType" id="type2" value="venue">
+                        <label class="form-check-label" for="type2">会場について</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inquiryType" id="type3" value="performer">
+                        <label class="form-check-label" for="type3">出演者について</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inquiryType" id="type4" value="other">
+                        <label class="form-check-label" for="type4">その他</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5 gy-2">
+                <div class="col-md-3 form-label-col">
+                    <label for="inputName" class="form-label mb-0">お名前</label>
+                    <span class="badge text-bg-danger ms-2">必須</span>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="inputName">
+                </div>
+            </div>
+            <div class="row mb-5 gy-2">
+                <div class="col-md-3 form-label-col">
+                    <label for="inputEmail" class="form-label mb-0">メールアドレス</label>
+                    <span class="badge text-bg-danger ms-2">必須</span>
+                </div>
+                <div class="col-md-9">
+                    <input type="email" class="form-control" id="inputEmail">
+                </div>
+            </div>
+            <div class="row mb-5 gy-2">
+                <div class="col-md-3 form-label-col">
+                    <label for="inputPhone" class="form-label mb-0">電話番号</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="tel" class="form-control" id="inputPhone">
+                </div>
+            </div>
+            <div class="row mb-5 gy-2">
+                <div class="col-md-3 form-label-col align-items-start pt-2"> <label for="inputContent" class="form-label mb-0">お問い合わせ内容</label>
+                    <span class="badge text-bg-danger ms-2">必須</span>
+                </div>
+                <div class="col-md-9">
+                    <textarea class="form-control" id="inputContent" rows="6"></textarea>
+                </div>
+            </div>
+            <div class="text-center mb-4">
+                <a href="privacy.html" class="text-decoration-none text-dark fw-bold">個人情報の取り扱いについて</a>
+            </div>
+            <div class="text-center mb-5">
+                <button type="submit" class="btn btn-success submit-btn text-white" formaction="contact_confirmation.html">確認画面へ</button>
+            </div>
+        </form>
+    </div>
+    <!-- 以下フッター -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-4 footer-logo"><a href="index.html">Spring Music Festival 2026</a></p>
+            <div class="footer-nav">
+                <a href="artist/index.html">出演者一覧</a>
+                <a href="guide.html">来場者ガイド</a>
+                <a href="timetable.html">タイムテーブル</a>
+                <a href="faq.html">よくある質問</a>
+                <a href="map.html">会場案内</a>
+                <a href="#">お問い合わせ</a>
+                <a href="goods.html">グッズ紹介</a>
+            </div>
+        </div>
+    </footer>
+    <!-- ここまでフッター -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // サイドバーのリンクをクリックしたら閉じる
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
