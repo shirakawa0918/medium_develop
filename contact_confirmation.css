@@ -1,8 +1,36 @@
 @charset "UTF-8";
+
 #confirmation-head-text{
     text-align: center;
 }
+
+/* モバイル（デフォルト）：縦並び */
 .confirmation-box{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
+    column-gap: 0;
+    align-items: start;
+    padding: 0 1rem;
+}
+.confirmation-box .title{
+    text-align: left;
+    font-weight: 600;
+}
+.confirmation-box .title,
+.confirmation-box .content{
+    margin: 0;
+}
+
+/* PCサイズ：2列レイアウトに切替え */
+@media (min-width: 768px){
+    .confirmation-box{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+    }
+    .confirmation-box .title{
+        text-align: right;
+        font-weight: 600;
+    }
 }
