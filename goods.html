@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>グッズ紹介</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <style>
+    body {
+        font-family: 'Noto Sans JP', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+        padding-top: 110px;
+    }
+    h1,h2,h3,.en{
+        font-family: 'Poppins', sans-serif;
+    }
+    .header{
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        z-index: 1000;
+        background-color: #32CD32;
+    }
+    .header-top {
+        text-align: center;
+        padding: 15px 0 5px;
+        color: white;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    .header-nav {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0 15px;
+        flex-wrap: wrap;
+    }
+    .header-nav li {
+        margin: 0 15px;
+    }
+    .header-nav a {
+        color: white;
+        text-decoration: underline;
+        font-size: 0.95rem;
+    }
+    .footer {
+        background-color: #32CD32;
+        text-align: center;
+        color: white;
+        padding: 40px 0;
+        margin-top: 60px;
+    }
+    .footer-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .footer-nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.85rem;
+    
+    }
+    @media (max-width: 768px) {
+        body {padding-top: 100px;}
+        .header-nav li {margin: 5px 8px
+        }
+        .header-nav a {font-size: 0.8rem;}
+    }
+    .main-visual {
+      background-color: #9e9e9e;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<!-- 以下ヘッダー -->
+    <header class="header">
+        <div class="header-top-wrapper">
+            <div class="header-top en">
+                <a href="index.html" class="header-logo-link">Spring Music Festival 2026</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul class="header-nav">
+            <li><a href="artist/index.html">出演者一覧</a></li>
+            <li><a href="timetable.html">タイムテーブル</a></li>
+            <li><a href="access.html">会場案内</a></li>
+            <li><a href="goods.html">グッズ紹介</a></li>
+            <li><a href="guide.html">来場者ガイド</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </header>
+    <div class="ticket">
+            <a href="ticket.html">ticket</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="artist/index.html">出演者一覧</a></li>
+            <li><a href="timetable.html">タイムテーブル</a></li>
+            <li><a href="access.html">会場案内</a></li>
+            <li><a href="goods.html">グッズ紹介</a></li>
+            <li><a href="guide.html">来場者ガイド</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+    <!-- ここまでヘッダー -->
+    <!-- メイン -->
+<main class="container my-4">
+  <div class="row g-4">
+    <div class="col-md-8">
+      <div class="row g-4">
+        <!-- グッズ1 -->
+        <div class="col-md-4 text-center">
+          <div class="goods-card">
+            <img src="goods-img/bag.webp" alt="グッズ1" class="img-fluid" style="max-width: 200px; height: 200px;">
+          </div>
+          <small class="d-block mt-2">トートバッグ: ¥2,500(エコバッグ)</small>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="goods-card">
+            <img src="goods-img/brochure.webp" alt="グッズ2" class="img-fluid" style="max-width: 200px; height: auto;">
+          </div>
+          <small class="d-block mt-2">パンフレット: ¥1,000(出演者インタビュー掲載)</small>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="goods-card">
+            <img src="goods-img/sticker.webp" alt="グッズ3" class="img-fluid" style="max-width: 200px; height: auto;">
+          </div>
+          <small class="d-block mt-2">ステッカーセット: ¥500(5枚セット)</small>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="goods-card">
+            <img src="goods-img/t-shirt.webp" alt="グッズ4" class="img-fluid" style="max-width: 200px; height: auto;">
+          </div>
+          <small class="d-block mt-2">オフィシャルTシャツ: ¥3,500(S/M/L/XL)</small>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="goods-card">
+            <img src="goods-img/towel.webp" alt="グッズ5" class="img-fluid" style="max-width: 200px; height: auto;">
+          </div>
+          <small class="d-block mt-2">タオル: ¥2,000(フェスロゴ入り)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- 以下フッター -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-4 footer-logo"><a href="index.html">Spring Music Festival 2026</a></p>
+            <div class="footer-nav">
+                <a href="artist/index.html">出演者一覧</a>
+                <a href="guide.html">来場者ガイド</a>
+                <a href="timetable.html">タイムテーブル</a>
+                <a href="faq.html">よくある質問</a>
+                <a href="access.html">会場案内</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="goods.html">グッズ紹介</a>
+            </div>
+        </div>
+    </footer>
+    <!-- ここまでフッター -->
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    });
+</script>
+</body>
+</html>
