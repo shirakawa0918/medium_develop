@@ -12,72 +12,53 @@
     <link rel="icon" href="../index_img/favicon.ico">
 
     <style>
-        /* --- モバイルサイズ (767px以下) の設定 --- */
+        /* メイン画像をヘッダーに食い込ませる */
+        /* 画像を包む枠の調整 */
+        .position-relative.w-100.p-0.overflow-hidden {
+            height: 450px !important;
+            /* 枠の高さは維持 */
+
+            /* PC版の調整：ヘッダーの高さ分、上に持ち上げる */
+            margin-top: -110px !important;
+            z-index: 1;
+            /* ヘッダー(1000)より背面に配置 */
+        }
+
         @media (max-width: 767px) {
-            body {
-                /* ヘッダー1段分の高さ（実測値）に合わせる */
-                padding-top: 45px !important;
-            }
-
-            /* メイン画像を包むdivの高さ制限を解除、または調整 */
             .position-relative.w-100.p-0.overflow-hidden {
-                height: auto !important;
-                /* スマホで画像が縦長になりすぎるのを防ぐ */
-                min-height: 300px;
+                /* モバイル版の調整：モバイルヘッダーの高さ分、上に持ち上げる */
+                margin-top: -100px !important;
+                height: 400px !important;
+                /* スマホでは少し高さを抑えるとバランスが良い */
             }
+        }
 
-            /* 画像自体の高さを調整 */
-            .position-relative.w-100.p-0.overflow-hidden img {
-                height: 350px !important;
-                /* 450pxだとスマホでは高すぎるため */
-                margin-top: 0 !important;
-            }
+        /* 画像自体の拡大表示 */
+        .position-relative.w-100.p-0.overflow-hidden img {
+            height: 100% !important;
+            object-fit: cover !important;
+            /* ヘッダーに隠れた分、重要な部分（顔など）が消えないよう中央寄りに */
+            object-position: center 30%;
+            display: block !important;
+        }
 
-            /* タイトルの「...」対策と左右余白の最小化 */
-            .header-top-wrapper {
-                padding: 0 5px !important;
-            }
+        /* SNSアイコン */
+        .sns-img-custom {
+            max-width: 40px;
+            height: auto;
+        }
 
-            .header-top {
-                font-size: 1.25rem !important;
-                white-space: nowrap;
-                overflow: visible !important;
-                /* 省略を強制解除 */
-                text-overflow: clip !important;
-            }
-
+        @media (max-width: 767px) {
             .sns-img-custom {
-                /* モバイルではさらに一回り小さくする */
                 max-width: 32px;
             }
-
-            /* アイコン同士の間隔も少し狭くする（gap-4を上書き） */
-            .gap-4 {
-                gap: 1.5rem !important;
-            }
         }
 
-        /* --- PCサイズ (768px以上) の追加設定 --- */
-        @media (min-width: 768px) {
-            body {
-                /* ヘッダーの高さに合わせて調整。隙間が空く場合は数値を小さくする */
-                padding-top: 100px !important;
-            }
-
-            /* ヘッダー内のナビゲーション（下段）に最初から下線を表示 */
-            .header-nav a {
-                text-decoration: underline !important;
-                text-underline-offset: 4px;
-                /* 線と文字の間隔 */
-            }
-        }
-
-        /* タイムテーブル (縦線のみ) */
+        /* テーブル */
         .table-vertical-only.table-bordered thead th {
             border-bottom: 1px solid #dee2e6 !important;
         }
 
-        /* タイムテーブル（線） */
         td,
         th,
         tr {
@@ -85,69 +66,12 @@
             border-bottom: none;
         }
 
-        /* アルバム・カード画像 */
-        .album-art-fit {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        /* テキストの行数制限 */
+        /* カード */
         .card-body p {
             display: -webkit-box;
             -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
             overflow: hidden;
-        }
-
-        /* SNSアイコン（共通設定） */
-        .sns-img-custom {
-            /* PCサイズでの大きさ（お好みで調整してください） */
-            max-width: 40px;
-            height: auto;
-            width: 100%;
-            object-fit: contain;
-            transition: transform 0.3s;
-        }
-
-        .sns-link:hover .sns-img-custom {
-            transform: scale(1.1);
-            opacity: 0.8;
-        }
-
-        /* 戻るボタン */
-        .top-back-btn {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            z-index: 1000;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-
-        .top-back-btn:hover {
-            opacity: 0.8;
-            transform: translateY(-5px);
-        }
-
-        /* 一覧ボタンの設定 */
-        /* 画面の右下に固定するスタイル */
-        .top-back-btn {
-            position: fixed;
-            /* 画面に対して固定 */
-            right: 20px;
-            /* 右端から20px */
-            bottom: 20px;
-            /* 下端から20px */
-            z-index: 1000;
-            /* 他の要素より前面に表示 */
-            transition: opacity 0.3s, transform 0.3s;
-        }
-
-        /* マウスを乗せた時の動き（ふわっと浮く演出） */
-        .top-back-btn:hover {
-            opacity: 0.8;
-            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -157,7 +81,7 @@
     <header class="header">
         <div class="header-top-wrapper">
             <div class="header-top en">
-                <a href="index.html" class="header-logo-link">Spring Music Festival 2026</a>
+                <a href="../index.html" class="header-logo-link">Spring Music Festival 2026</a>
             </div>
             <button class="hamburger" id="hamburger">
                 <span></span>
@@ -166,29 +90,30 @@
             </button>
         </div>
         <ul class="header-nav">
-            <li><a href="artist.index.html">出演者一覧</a></li>
-            <li><a href="timetable.html">タイムテーブル</a></li>
-            <li><a href="map.html">会場案内</a></li>
-            <li><a href="goods.html">グッズ紹介</a></li>
-            <li><a href="guide.html">来場者ガイド</a></li>
-            <li><a href="faq.html">よくある質問</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
+            <li><a href="../artist/index.html">出演者一覧</a></li>
+            <li><a href="../timetable.html">タイムテーブル</a></li>
+            <li><a href="../access.html">会場案内</a></li>
+            <li><a href="../goods.html">グッズ紹介</a></li>
+            <li><a href="../guide.html">来場者ガイド</a></li>
+            <li><a href="../faq.html">よくある質問</a></li>
+            <li><a href="../contact.html">お問い合わせ</a></li>
         </ul>
     </header>
-    <div class=""><a href="artist/index.html" class="top-back-btn">
-            <img src="img/icon/ボタン_Topへ.png" alt="一覧へ" style="width: 100px; height: auto;">
+    <div class="ticket" style="background-color: white;">
+        <a href="../artist/index.html" style="color: black;">
+            一覧
         </a>
     </div>
     <div class="overlay" id="overlay"></div>
     <nav class="sidebar" id="sidebar">
         <ul>
-            <li><a href="artist/index.html">出演者一覧</a></li>
-            <li><a href="timetable.html">タイムテーブル</a></li>
-            <li><a href="map.html">会場案内</a></li>
-            <li><a href="goods.html">グッズ紹介</a></li>
-            <li><a href="guide.html">来場者ガイド</a></li>
-            <li><a href="faq.html">よくある質問</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
+            <li><a href="../artist/index.html">出演者一覧</a></li>
+            <li><a href="../timetable.html">タイムテーブル</a></li>
+            <li><a href="../access.html">会場案内</a></li>
+            <li><a href="../goods.html">グッズ紹介</a></li>
+            <li><a href="../guide.html">来場者ガイド</a></li>
+            <li><a href="../faq.html">よくある質問</a></li>
+            <li><a href="../contact.html">お問い合わせ</a></li>
         </ul>
     </nav>
     <!-- ここまでヘッダー -->
@@ -197,7 +122,7 @@
         <!-- メイン画像 -->
         <div class="position-relative w-100 p-0 overflow-hidden" style="height: 450px;">
             <!-- アーティスト画像 -->
-            <img src="img/artist/高橋リオ/高橋リオ.webp" alt="高橋リオ" class="w-100"
+            <img src="../artist_img/artist/高橋リオ.webp" alt="高橋リオ" class="w-100"
                 style="height: 450px; object-fit: cover; object-position: center; display: block;">
             <!-- アーティスト名 -->
             <div class="position-absolute start-0 bottom-0 p-4">
@@ -224,42 +149,26 @@
                             style="font-size: 11px; table-layout: fixed; border-collapse: collapse; width: 100%;">
                             <thead>
                                 <tr>
-                                    <th style="background-color: #67ef67;">ステージA</th>
-                                    <th style="background-color: #32CD32;">広場D</th>
-                                    <th style="background-color: #67ef67;">ステージB</th>
+                                    <th style="background-color: #67ef67;">メインステージ</th>
+                                    <th style="background-color: #32CD32;">サブステージ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr style="height: 80px;">
                                     <td style="background-color: #67ef67;">
                                         <div class="bg-white border rounded p-2 shadow-sm">
-                                            mm.dd<br>00:00 〜 00:00
+                                            5月2日(土)<br>12:00 〜 12:40
                                         </div>
                                     </td>
                                     <td style="background-color: #32CD32;"></td>
-                                    <td style="background-color: #67ef67;"></td>
                                 </tr>
                                 <tr style="height: 80px;">
                                     <td style="background-color: #67ef67;"></td>
-                                    <td style="background-color: #32CD32;">
-                                        <div class="bg-white border rounded p-2 shadow-sm">
-                                            mm.dd<br>00:00 〜 00:00
-                                        </div>
-                                    </td>
-                                    <td style="background-color: #67ef67;"></td>
-                                </tr>
-                                <tr style="height: 80px;">
-                                    <td style="background-color: #67ef67;">
-                                        <div class="bg-white border rounded p-2 shadow-sm">
-                                            mm.dd<br>00:00 〜 00:00
-                                        </div>
-                                    </td>
                                     <td style="background-color: #32CD32;"></td>
-                                    <td style="background-color: #67ef67;">
-                                        <div class="bg-white border rounded p-2 shadow-sm">
-                                            mm.dd<br>00:00 〜 00:00
-                                        </div>
-                                    </td>
+                                </tr>
+                                <tr style="height: 80px;">
+                                    <td style="background-color: #67ef67;"></td>
+                                    <td style="background-color: #32CD32;"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -284,7 +193,7 @@
                         <div class="row g-0 align-items-center p-3">
                             <div class="col-5">
                                 <div class="ratio ratio-1x1 shadow-sm">
-                                    <img src="img/artist/高橋リオ/jacket/水彩の午後.webp" class="img-fluid album-art-fit"
+                                    <img src="../artist_img/jaket/高橋リオ/水彩の午後.webp" class="img-fluid album-art-fit"
                                         alt="水彩の午後">
                                 </div>
                             </div>
@@ -305,7 +214,7 @@
                         <div class="row g-0 align-items-center p-3">
                             <div class="col-5">
                                 <div class="ratio ratio-1x1 shadow-sm">
-                                    <img src="img/artist/高橋リオ/jacket/栞（しおり）.webp" class="img-fluid album-art-fit"
+                                    <img src="../artist_img/jaket/高橋リオ/栞（しおり）.webp" class="img-fluid album-art-fit"
                                         alt="栞（しおり）">
                                 </div>
                             </div>
@@ -326,7 +235,7 @@
                         <div class="row g-0 align-items-center p-3">
                             <div class="col-5">
                                 <div class="ratio ratio-1x1 shadow-sm">
-                                    <img src="img/artist/高橋リオ/jacket/キャンバスの向こう.webp" class="img-fluid album-art-fit"
+                                    <img src="../artist_img/jaket/高橋リオ/キャンバスの向こう.webp" class="img-fluid album-art-fit"
                                         alt="キャンバスの向こう">
                                 </div>
                             </div>
@@ -347,13 +256,13 @@
             <div class="container my-5">
                 <div class="d-flex justify-content-center align-items-center gap-4">
                     <a href="#" target="_blank" class="sns-link">
-                        <img src="img/icon/logo-black.webp" alt="X" class="sns-img-custom">
+                        <img src="../artist_img/icon/logo-black.webp" alt="X" class="sns-img-custom">
                     </a>
                     <a href="#" target="_blank" class="sns-link">
-                        <img src="img/icon/normal.webp" alt="Instagram" class="sns-img-custom">
+                        <img src="../artist_img/icon/normal.webp" alt="Instagram" class="sns-img-custom">
                     </a>
                     <a href="#" target="_blank" class="sns-link">
-                        <img src="img/icon/yt_icon_red_digital.webp" alt="YouTube" class="sns-img-custom">
+                        <img src="../artist_img/icon/yt_icon_red_digital.webp" alt="YouTube" class="sns-img-custom">
                     </a>
                 </div>
             </div>
@@ -362,15 +271,15 @@
     <!-- 以下フッター -->
     <footer class="footer">
         <div class="container text-center">
-            <p class="mb-4 footer-logo"><a href="index.html">Spring Music Festival 2026</a></p>
+            <p class="mb-4 footer-logo"><a href="../index.html">Spring Music Festival 2026</a></p>
             <div class="footer-nav">
-                <a href="artist/index.html">出演者一覧</a>
-                <a href="guide.html">来場者ガイド</a>
-                <a href="timetable.html">タイムテーブル</a>
-                <a href="faq.html">よくある質問</a>
-                <a href="map.html">会場案内</a>
-                <a href="contact.html">お問い合わせ</a>
-                <a href="goods.html">グッズ紹介</a>
+                <a href="../artist/index.html">出演者一覧</a>
+                <a href="../guide.html">来場者ガイド</a>
+                <a href="../timetable.html">タイムテーブル</a>
+                <a href="../faq.html">よくある質問</a>
+                <a href="../access.html">会場案内</a>
+                <a href="../contact.html">お問い合わせ</a>
+                <a href="../goods.html">グッズ紹介</a>
             </div>
         </div>
     </footer>
